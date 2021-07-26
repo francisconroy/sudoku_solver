@@ -73,12 +73,17 @@ def countzero(ogrid):
         c += ogrid[x].count(0)
     return c
 
-# populate 3d grid of possibilities
-dgrid = []
-for x in range(9):
-    dgrid.append(populate(x + 1, grid))
 
-while countzero(grid) > 0:
-    cleargrid(dgrid, grid)
-    analysis(dgrid, grid)
-printgrid(grid)  # final grid
+def solve(grid):
+    # populate 3d grid of possibilities
+    dgrid = []
+    for x in range(9):
+        dgrid.append(populate(x + 1, grid))
+
+    its = 0
+    while countzero(grid) > 0 and its < 1000:
+        cleargrid(dgrid, grid)
+        analysis(dgrid, grid)
+        its += 1
+
+    return grid
