@@ -5,7 +5,7 @@ def populate(num, puzz):
     for i in range(9):
         ones.append([])
         for j in range(9):
-            if puzz[i][j] is 0:
+            if puzz[i][j] == 0:
                 ones[i].append(num)
             else:
                 ones[i].append(0)
@@ -42,7 +42,7 @@ def cleargrid(pgrid, ogrid):
     for i in range(9):
         for j in range(9):
             n = ogrid[i][j]
-            if n is not 0:
+            if n != 0:
                 for k in range(9):
                     pgrid[n - 1][i][k] = 0  # clear row
                 for k in range(9):
@@ -59,10 +59,10 @@ def analysis(pgrid, ogrid):
             c = 0
             nu = 0
             for n in range(9):
-                if pgrid[n][i][j] is not 0:
+                if pgrid[n][i][j] != 0:
                     c += 1
                     nu = n
-            if c is 1:
+            if c == 1:
                 ogrid[i][j] = nu + 1  # apply result to grid
     return
 
@@ -78,15 +78,15 @@ def countzero(ogrid):
 # INPUT GRID
 
 # grid that solves
-grid = [[0,0,0,0,0,0,9,0,0],
-        [0,0,0,2,6,0,0,0,7],
-        [0,0,0,7,5,1,0,0,0],
-        [0,8,6,0,0,2,4,0,0],
-        [0,1,2,0,0,0,3,0,0],
-        [0,0,3,4,0,0,0,9,0],
-        [7,0,0,5,8,0,0,0,3],
-        [0,0,0,0,0,7,0,5,0],
-        [0,2,0,0,0,0,7,0,4]]
+grid = [[0, 0, 0, 0, 0, 0, 9, 0, 0],
+        [0, 0, 0, 2, 6, 0, 0, 0, 7],
+        [0, 0, 0, 7, 5, 1, 0, 0, 0],
+        [0, 8, 6, 0, 0, 2, 4, 0, 0],
+        [0, 1, 2, 0, 0, 0, 3, 0, 0],
+        [0, 0, 3, 4, 0, 0, 0, 9, 0],
+        [7, 0, 0, 5, 8, 0, 0, 0, 3],
+        [0, 0, 0, 0, 0, 7, 0, 5, 0],
+        [0, 2, 0, 0, 0, 0, 7, 0, 4]]
 
 # grid that doesn't
 # grid = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -107,4 +107,4 @@ for x in range(9):
 while countzero(grid) > 0:
     cleargrid(dgrid, grid)
     analysis(dgrid, grid)
-print(grid)  # final grid
+printgrid(grid)  # final grid
