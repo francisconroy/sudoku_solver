@@ -1,5 +1,5 @@
 import unittest
-from main import solve
+from main import solve, printgrid, findrange, findrange2
 
 
 class MyTestCase(unittest.TestCase):
@@ -47,6 +47,17 @@ class MyTestCase(unittest.TestCase):
                [4, 6, 1, 9, 8, 3, 5, 7, 2],
                [2, 8, 9, 6, 5, 7, 4, 3, 1]]
         self.assertEqual(solution, sol)
+
+    def test_findrange(self):
+        self.assertEqual(findrange(0), [0,1,2])
+        self.assertEqual(findrange(1), [0,1,2])
+        self.assertEqual(findrange(2), [0,1,2])
+        self.assertEqual(findrange(3), [3,4,5])
+        self.assertEqual(findrange(4), [3,4,5])
+        self.assertEqual(findrange(5), [3,4,5])
+        self.assertEqual(findrange(6), [6,7,8])
+        self.assertEqual(findrange(7), [6,7,8])
+        self.assertEqual(findrange(8), [6,7,8])
 
 
 if __name__ == '__main__':

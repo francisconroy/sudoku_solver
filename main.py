@@ -12,21 +12,14 @@ def populate(num, puzz):
     return ones
 
 
-# findrange - allows me to identify the location of the smaller square to check
 def findrange(index):
     """
-    Gets the other indices for entries in that row
+    Returns the other indices in the same 'box'
     :param index:
     :return:
     """
-    ranges = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-    if index < 3:
-        return ranges[0]
-    if index > 5:
-        return ranges[2]
-    else:
-        return ranges[1]
-
+    start = (index)//3*3
+    return list(range(start, start+3))
 
 # printgrid - prints the 3d grid in an easy to see way
 def printgrid(grid):
