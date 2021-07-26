@@ -30,10 +30,9 @@ def findrange(index):
 
 # printgrid - prints the 3d grid in an easy to see way
 def printgrid(grid):
-    for a in range(len(grid)):
-        print(a + 1)
-        for b in range(len(grid[a])):
-            print(grid[a][b])
+    """ Iterate over rows and columns to print out the grid """
+    for row in grid:
+        print(" ".join([str(x) for x in row]))
 
 
 # cleargrid - clear possibilities by applying the:
