@@ -104,8 +104,6 @@ dgrid = []
 for x in range(9):
     dgrid.append(populate(x + 1, grid))
 
-# MAIN CODE
-
 while countzero(grid) > 0:
     cleargrid(dgrid, grid)
     analysis(dgrid, grid)
