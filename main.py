@@ -72,6 +72,37 @@ def analysis(pgrid, ogrid):
                 ogrid[row][col] = nu  # apply result to grid
     return
 
+def analysis2(pgrid, ogrid):
+    """
+    Check all possibility grids to see if any of the possibilities are the only ones for the given box, row/column
+    :param pgrid:
+    :param ogrid:
+    :return:
+    """
+    for index, grid in enumerate(pgrid):
+        # Check each row
+        num = index+1
+        for rowidx, row in enumerate(grid):
+            if row.count(num) == 1:
+                ogrid[rowidx][row.index(num)] = num
+        # Check each col
+        for colidx in range(9):
+            col = [row[colidx] for row in grid]
+            if col.count(num) == 1:
+                ogrid[col.index(num)][colidx] = num
+        # Check each box
+        for box in [
+            [0,0],[0,3], [0,6],
+            [3,0],[3,3], [3,6],
+            [6,0],[6,3], [6,6]]:
+            locs = []
+            for rowidx in findrange(box[0]):
+                for colidx in findrange(box[1]):
+                    if grid[rowidx][colidx] != 0:
+                        locs.append([rowidx, colidx])
+            if len(locs) == 1:
+                loc = locs[0]
+                ogrid[loc[0]][loc[1]] = num
 
 # count the number of zeros in the main grid, so that we know when we're done
 def countzero(ogrid):
