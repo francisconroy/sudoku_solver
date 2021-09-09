@@ -1,15 +1,14 @@
 # FUNCTIONS
-# populate - populate square grid with the same number in it in all positions except for those already filled in the puzzle
 def populate(num, puzz):
     ones = []
     for i in range(9):
-        ones.append([])
+        grid.append([])
         for j in range(9):
             if puzz[i][j] == 0:
-                ones[i].append(num)
+                grid[i].append(num)
             else:
-                ones[i].append(0)
-    return ones
+                grid[i].append(0)
+    return grid
 
 
 def findrange(index):
