@@ -33,20 +33,24 @@ def printgrid(grid):
         print(" ".join([str(x) for x in row]))
 
 
-# cleargrid - clear possibilities by applying the:
-# one in row, one in column, one in square grid rules
 def cleargrid(pgrid, ogrid):
-    for i in range(9):
-        for j in range(9):
-            n = ogrid[i][j]
-            if n != 0:
+    """
+    cleargrid - clear possibilities by applying the:
+    one in row, one in column, one in square grid rules
+    :param pgrid: possibility grid
+    :param ogrid: solution grid
+    :return:
+    """
+    for row in range(9):
+        for col in range(9):
+            val = ogrid[row][col]
+            if val != 0:
                 for k in range(9):
-                    pgrid[n - 1][i][k] = 0  # clear row
-                for k in range(9):
-                    pgrid[n - 1][k][j] = 0  # clear column
-                for k in findrange(i):
-                    for l in findrange(j):
-                        pgrid[n - 1][k][l] = 0  # clear box
+                    pgrid[val - 1][row][k] = 0  # clear row
+                    pgrid[val - 1][k][col] = 0  # clear column
+                for k in findrange(row):  # Box
+                    for l in findrange(col):
+                        pgrid[val - 1][k][l] = 0  # clear box
 
 
 # analysis - run analysis and see if we can update any results, using only the rule that the number of possibilities for a given position (i,j) is 1
