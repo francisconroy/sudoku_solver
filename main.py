@@ -53,18 +53,23 @@ def cleargrid(pgrid, ogrid):
                         pgrid[val - 1][k][l] = 0  # clear box
 
 
-# analysis - run analysis and see if we can update any results, using only the rule that the number of possibilities for a given position (i,j) is 1
 def analysis(pgrid, ogrid):
-    for i in range(9):
-        for j in range(9):
+    """
+    analysis - run analysis and see if we can update any results, using only the rule that the number of possibilities
+    for a given position (i,j) is 1
+    :param pgrid:
+    :param ogrid:
+    :return:
+    """
+    for row in range(9):
+        for col in range(9):
             c = 0
-            nu = 0
-            for n in range(9):
-                if pgrid[n][i][j] != 0:
+            for poss in range(9):
+                if pgrid[poss][row][col] != 0:
                     c += 1
-                    nu = n
+                    nu = poss+1
             if c == 1:
-                ogrid[i][j] = nu + 1  # apply result to grid
+                ogrid[row][col] = nu  # apply result to grid
     return
 
 
