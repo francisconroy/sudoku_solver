@@ -132,6 +132,7 @@ def solve(grid):
     while countzero(grid) > 0 and its < 1000:
         cleargrid(dgrid, grid)
         analysis(dgrid, grid)
+        analysis2(dgrid, grid)
         its += 1
 
     return grid
