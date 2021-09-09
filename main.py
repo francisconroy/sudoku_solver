@@ -1,6 +1,12 @@
 # FUNCTIONS
 def populate(num, puzz):
-    ones = []
+    """
+    Populate square grid with the same number in it in all positions except for those already filled in the puzzle
+    :param num: Number to put in all positions
+    :param puzz: Current grid
+    :return: Populated grid array
+    """
+    grid = []
     for i in range(9):
         grid.append([])
         for j in range(9):
