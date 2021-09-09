@@ -117,6 +117,12 @@ def countzero(ogrid):
 
 
 def solve(grid):
+    """
+    Iteratives over the possibility grids and populates the solution grid until the puzzle is solved
+    :param grid:
+    :return: completed grid or not complete grid depending on if the solver is function complete or not and the puzzle
+    is solveable
+    """
     # populate 3d grid of possibilities
     dgrid = []
     for x in range(9):
