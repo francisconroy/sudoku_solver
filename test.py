@@ -1,5 +1,5 @@
 import unittest
-from main import solve, printgrid, findrange, findrange2
+from main import solve, printgrid, findrange
 
 
 class MyTestCase(unittest.TestCase):
