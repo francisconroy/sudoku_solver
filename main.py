@@ -104,10 +104,14 @@ def analysis2(pgrid, ogrid):
                 loc = locs[0]
                 ogrid[loc[0]][loc[1]] = num
 
-# count the number of zeros in the main grid, so that we know when we're done
 def countzero(ogrid):
+    """
+    count the number of zeros in the main grid, so that we know when we're done
+    :param ogrid: Grid matrix to be assessed
+    :return: count of zeros in grid cells
+    """
     c = 0
-    for x in range(len(grid)):
+    for x in range(len(ogrid)):
         c += ogrid[x].count(0)
     return c
 
